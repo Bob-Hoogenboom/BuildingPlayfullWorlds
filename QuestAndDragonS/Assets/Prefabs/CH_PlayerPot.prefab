@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7375983281920995880}
   - component: {fileID: 7375983281920995881}
   - component: {fileID: 7375983281920995895}
+  - component: {fileID: 907861328}
   m_Layer: 0
   m_Name: CH_PlayerPot
   m_TagString: Untagged
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: d088b18dd3bcf1d488a73e6de814724b, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -126,9 +127,21 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnMove
+      - m_Target: {fileID: 1865422292109524082}
+        m_TargetAssemblyTypeName: EquipSystem, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7375983281920995880}
+        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
+        m_MethodName: OnMovement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -141,9 +154,37 @@ MonoBehaviour:
     m_ActionId: c03cf026-07fe-453b-9bb0-a5d8d144a895
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1865422292109524082}
+        m_TargetAssemblyTypeName: EquipSystem, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 057fc99a-4c31-44e4-870a-64866fbfc924
     m_ActionName: Player/Attack[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1865422292109524082}
+        m_TargetAssemblyTypeName: EquipSystem, Assembly-CSharp
+        m_MethodName: OnSwapPlant
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d5691bc7-a063-48ed-a932-d927a83e6cd0
+    m_ActionName: Player/SwapPlant[/Mouse/scroll/x,/Mouse/scroll/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -167,6 +208,25 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!95 &907861328
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375983281920995894}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 955e5c0d9df8dfc48a78e0202ffc58e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7682481698832387267
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +367,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantSocket: {fileID: 7682481698832387268}
-  anim: {fileID: 0}
+  anim: {fileID: 907861328}
   equippablePlants:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8ffcbfae0c475204aa891220363286ca, type: 2}
+  - {fileID: 11400000, guid: 36f3ac736826a0b448b7d0514e251a58, type: 2}
+  - {fileID: 11400000, guid: 56b9c3542bf5d1245b905a571d4b6142, type: 2}
+  - {fileID: 11400000, guid: ee389b9226e54084fb0c7f7249a9bc05, type: 2}

@@ -22,9 +22,9 @@ public class Movement : MonoBehaviour
     }
 
 
-    private void OnMovement(InputValue value)
+    public void OnMovement(InputAction.CallbackContext context)
     {
-        _moveVector = value.Get<Vector2>();
+        _moveVector = context.ReadValue<Vector2>();
     }
 
 
@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
 
         ApplyGravity();
     }
-    
+
     private void ApplyGravity()
     {
         _gravity += Physics.gravity * Time.deltaTime;

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// tutorial source: https://www.youtube.com/watch?v=TVJB_1d3xTE
 /// </summary>
-public class PlantHandler : MonoBehaviour, PlayerInputActions.IPlayerActions
+public class EquipSystem : MonoBehaviour, PlayerInputActions.IPlayerActions
 {
     [Tooltip("This Transform is needed to know where the plant you currently want to have equipped will appear at.")]
     [SerializeField] private Transform plantSocket;
@@ -19,7 +19,7 @@ public class PlantHandler : MonoBehaviour, PlayerInputActions.IPlayerActions
     
     private Plant _currentPlant;
     private GameObject _currentPlantGameObject;
-    private IPlantObject _currentPlantInterface;
+    private IEquipedObject _currentPlantInterface;
     private int _currentPlantIndex;
     
     private void Awake()
@@ -40,7 +40,7 @@ public class PlantHandler : MonoBehaviour, PlayerInputActions.IPlayerActions
         _currentPlantGameObject.transform.localPosition = Vector3.zero;
         _currentPlantGameObject.transform.localRotation = Quaternion.identity;
 
-        _currentPlantInterface = _currentPlantGameObject.GetComponentInChildren<IPlantObject>();
+        _currentPlantInterface = _currentPlantGameObject.GetComponentInChildren<IEquipedObject>();
 
         if (_currentPlantInterface != null)
         {
@@ -77,6 +77,5 @@ public class PlantHandler : MonoBehaviour, PlayerInputActions.IPlayerActions
     
     public void OnMovement(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
     }
 }

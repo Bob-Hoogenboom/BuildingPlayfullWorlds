@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlantObject : PlayerInputActions.IPlayerActions
+public interface IEquipedObject : PlayerInputActions.IPlayerActions
 {
-    void OnAttachedCarrier(PlantHandler attachedHandler);
+    void OnAttachedCarrier(EquipSystem attachedHandler);
     void OnEquip();
     void OnUnEquip();
 }

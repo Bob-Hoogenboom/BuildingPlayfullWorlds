@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2558060289834753306}
   m_Layer: 0
-  m_Name: CH_Chomper
+  m_Name: WP_Chomper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

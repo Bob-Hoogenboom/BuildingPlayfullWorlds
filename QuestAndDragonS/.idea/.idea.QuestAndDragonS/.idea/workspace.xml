@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4956e121-9776-4310-8562-5dd24e82014f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.QuestAndDragonS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QuestAndDragonS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScenes.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScenes.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,7 @@
       <workItem from="1700149481743" duration="1669000" />
       <workItem from="1700163788430" duration="8973000" />
       <workItem from="1700231582102" duration="1192000" />
-      <workItem from="1700745326286" duration="7078000" />
+      <workItem from="1700745326286" duration="7678000" />
     </task>
     <servers />
   </component>

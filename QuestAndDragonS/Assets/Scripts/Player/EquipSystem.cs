@@ -74,8 +74,16 @@ public class EquipSystem : MonoBehaviour, PlayerInputActions.IPlayerActions
             SwitchHandler(equippablePlants[_currentPlantIndex]);
         }
     }
-    
-    public void OnMovement(InputAction.CallbackContext context)
+
+    public void OnLookMouse(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnLookStick(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
     {
     }
 }

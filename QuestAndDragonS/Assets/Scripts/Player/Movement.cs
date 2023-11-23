@@ -7,12 +7,10 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float turnSmoothTime = 0.1f;
-    
+
     private Camera _cam;
-    private Vector3 _gravity;
-    private float _turnSmoothVelocity;
     private CharacterController _charCon;
+    private Vector3 _gravity;
     private Vector2 _moveVector;
 
     private void Awake()
@@ -75,8 +73,7 @@ public class Movement : MonoBehaviour
         if (direction == Vector2.zero) return;
 
          float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + _cam.transform.eulerAngles.y;
-         
-         
+
          transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
          
          // float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _cam.eulerAngles.y;

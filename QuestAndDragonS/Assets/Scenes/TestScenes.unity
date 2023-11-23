@@ -338,7 +338,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874004298}
-  m_LocalRotation: {x: 0.32187214, y: -0.033746723, z: 0.011480806, w: 0.9461119}
+  m_LocalRotation: {x: 0.32187212, y: -0.03374672, z: 0.011480806, w: 0.9461119}
   m_LocalPosition: {x: 0.5, y: 5.4, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -424,7 +424,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923960405}
-  m_LocalRotation: {x: 0.32187214, y: -0.033746723, z: 0.011480806, w: 0.9461119}
+  m_LocalRotation: {x: 0.32187212, y: -0.03374672, z: 0.011480806, w: 0.9461119}
   m_LocalPosition: {x: 0.5, y: 5.4, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -698,6 +698,10 @@ PrefabInstance:
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 923960407}
     - target: {fileID: 7375983281920995894, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: m_Name
       value: CH_PlayerPot

@@ -28,8 +28,9 @@ public class Movement : MonoBehaviour
 
     public void LookMouseInput(InputAction.CallbackContext context)
     {
+        if (_cam == null) return;
         Vector2 mousePosition = context.ReadValue<Vector2>();
-        Vector2 objectPosition = (Vector2) _cam.WorldToScreenPoint(transform.position);
+        Vector2 objectPosition = (Vector2) _cam.WorldToScreenPoint(transform.position); //Debug on application quit error 
         Vector2 direction = (mousePosition - objectPosition).normalized;
 
         RotateAim(direction);

@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4956e121-9776-4310-8562-5dd24e82014f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QuestAndDragonS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QuestAndDragonS/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CH_PlayerPot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/CH_PlayerPot.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/CH_FootSoldier.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/CH_FootSoldier.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestEnemy.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestEnemy.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZChase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZChase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZDeath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZIdle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZIdle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZPatrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZPatrol.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/ZombieBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/ZombieBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +89,7 @@
       <workItem from="1701178410831" duration="770000" />
       <workItem from="1701197843397" duration="6444000" />
       <workItem from="1701273374484" duration="2833000" />
+      <workItem from="1701345127675" duration="8189000" />
     </task>
     <servers />
   </component>

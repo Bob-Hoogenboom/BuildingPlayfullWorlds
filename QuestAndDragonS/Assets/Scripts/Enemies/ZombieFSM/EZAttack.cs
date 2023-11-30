@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EZAttack : State
@@ -15,7 +13,11 @@ public class EZAttack : State
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        //transition to idle state when moved to a waypoint
+        
+        if (((ZombieBehaviour)fsm).playerInDetectRange)
+        {
+            fsm.SwitchState(((ZombieBehaviour)fsm).chaseState);
+        }
         Debug.Log("Zombie: Update AttackState");
     }
 }

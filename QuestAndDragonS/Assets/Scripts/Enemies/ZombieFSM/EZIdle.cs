@@ -1,4 +1,3 @@
-using System.Threading;
 using UnityEngine;
 
 public class EZIdle : State
@@ -18,17 +17,19 @@ public class EZIdle : State
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        //transition to the patrol state when the 'wait' timer has run out
+        
+        if (((ZombieBehaviour)fsm).playerInDetectRange)
+        {
+            fsm.SwitchState(((ZombieBehaviour)fsm).chaseState);
+        }
 
         if (_curTimer <= 0)
         {
             _curTimer = _timer;
             fsm.SwitchState(((ZombieBehaviour)fsm).patrolState);
         }
-        else
-        {
-            _curTimer -= Time.deltaTime;
-        }
+        
+        _curTimer -= Time.deltaTime;
         Debug.Log("Zombie: Update IdleState");
     }
 }

@@ -212,7 +212,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""LookMouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -222,8 +222,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""id"": ""8ce106be-7b17-4204-ac25-d72b741fd44a"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""LookStick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

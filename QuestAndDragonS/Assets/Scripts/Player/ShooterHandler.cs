@@ -7,7 +7,7 @@ public class ShooterHandler : MonoBehaviour, IEquipedObject
 {
 
     private EquipSystem _equipSystem;
-    public void OnMovement(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         
     }
@@ -21,6 +21,15 @@ public class ShooterHandler : MonoBehaviour, IEquipedObject
     {
         
     }
+
+    public void OnLookMouse(InputAction.CallbackContext context)
+    {
+    }
+
+    public void OnLookStick(InputAction.CallbackContext context)
+    {
+    }
+
 
     public void OnAttachedCarrier(EquipSystem attachedHandler)
     {

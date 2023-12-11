@@ -51,9 +51,15 @@ public class Movement : MonoBehaviour
         
         Vector3 camForward = _cam.transform.forward;
         Vector3 camRight = _cam.transform.right;
+        
+        
+        Debug.Log("Forward: " + camForward + " Right: " + camRight);
 
         camForward.y = 0;
         camRight.y = 0;
+        
+        camForward.Normalize();
+        camRight.Normalize();
 
         Vector3 forwardRelative = _moveVector.y * camForward;
         Vector3 rightRelative = _moveVector.x * camRight;

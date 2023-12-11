@@ -10,17 +10,16 @@ public class FSM : MonoBehaviour
 {
     private State currentState;
 
-    private void Start()
+     private void Start()
     {
         currentState = GetInitialState();
         if (currentState != null)
             currentState.Enter();
     }
 
-    private void Update()
+     private void Update()
     {
-        if(currentState != null)
-            currentState.UpdateLogic();
+        currentState?.UpdateLogic();
     }
 
     public void SwitchState(State newState)

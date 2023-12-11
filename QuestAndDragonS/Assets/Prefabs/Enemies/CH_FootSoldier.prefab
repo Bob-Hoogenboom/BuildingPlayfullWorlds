@@ -48,14 +48,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
-  detectRange: 0.42
+    m_Bits: 64
+  detectRange: 2
   attackRange: 4
+  walkPointRange: 1
+  timeBetweenAttacks: 1
   playerInDetectRange: 0
   playerInAttackRange: 0
+  navAgent: {fileID: 0}
+  player: {fileID: 0}
 --- !u!136 &8158131910735715793
 CapsuleCollider:
   m_ObjectHideFlags: 0

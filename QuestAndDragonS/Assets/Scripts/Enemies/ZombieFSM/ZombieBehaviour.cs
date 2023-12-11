@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ZombieBehaviour : FSM
 {
-    [HideInInspector]
+
     public EZIdle idleState;
     public EZPatrol patrolState;
     public EZChase chaseState;
@@ -13,15 +13,22 @@ public class ZombieBehaviour : FSM
     public EZDeath deathState;
 
     [Header("Detection")] 
-    [SerializeField] private LayerMask groundMask;
-    [SerializeField] private LayerMask playerMask;
+    public LayerMask groundMask;
+    public LayerMask playerMask;
     [SerializeField] private float detectRange;
     [SerializeField] private float attackRange;
     
-    public bool playerInDetectRange, playerInAttackRange;
+    //Patrol Variables:
+    public float walkPointRange;
     
-    private NavMeshAgent navAgent;
-    private Transform player;
+    //Attacking
+    public float timeBetweenAttacks;
+
+
+    public bool playerInDetectRange, playerInAttackRange;
+
+    public NavMeshAgent navAgent;
+    public Transform player;
 
     private Vector3 detectSpherePos;
     private Vector3 attackSpherePos;

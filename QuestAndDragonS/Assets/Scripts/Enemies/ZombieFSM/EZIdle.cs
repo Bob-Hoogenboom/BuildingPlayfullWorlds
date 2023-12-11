@@ -17,7 +17,7 @@ public class EZIdle : State
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        
+        Debug.Log(_curTimer);
         if (((ZombieBehaviour)fsm).playerInDetectRange)
         {
             fsm.SwitchState(((ZombieBehaviour)fsm).chaseState);
@@ -30,6 +30,5 @@ public class EZIdle : State
         }
         
         _curTimer -= Time.deltaTime;
-        Debug.Log("Zombie: Update IdleState");
     }
 }

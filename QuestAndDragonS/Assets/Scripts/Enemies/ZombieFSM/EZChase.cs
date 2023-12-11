@@ -13,6 +13,8 @@ public class EZChase : State
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+
+        ((ZombieBehaviour) fsm).navAgent.SetDestination(((ZombieBehaviour) fsm).player.position);
         
         if (((ZombieBehaviour)fsm).playerInAttackRange)
         {

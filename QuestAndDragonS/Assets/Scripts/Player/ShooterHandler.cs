@@ -30,6 +30,7 @@ public class ShooterHandler : MonoBehaviour, IEquipedObject
     {
     }
 
+
     public void OnAttachedCarrier(EquipSystem attachedHandler)
     {
         _equipSystem = attachedHandler;

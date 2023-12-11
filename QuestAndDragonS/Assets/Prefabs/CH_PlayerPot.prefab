@@ -198,8 +198,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 181d6b04-f617-42a2-a268-308911ccf48f
-    m_ActionName: Player/LookRotationMouse[/Mouse/delta]
+    m_ActionId: d7d35f28-02a8-447d-9075-31b6d043d8aa
+    m_ActionName: Player/LookMouse[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7375983281920995880}
@@ -214,8 +214,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 13f3abe7-96f4-4494-91f4-4e1ab333fec8
-    m_ActionName: Player/LookRotationStick
+    m_ActionId: 4dcfb048-9059-4b80-b04c-e698dea99b90
+    m_ActionName: Player/LookStick[/XInputControllerWindows/leftStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

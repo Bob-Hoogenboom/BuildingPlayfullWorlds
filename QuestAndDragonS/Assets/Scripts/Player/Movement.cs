@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,8 +6,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
 
     private Camera _cam;
-    private CharacterController _charCon;
     private Vector3 _gravity;
+    private float _turnSmoothVelocity;
+    private CharacterController _charCon;
     private Vector2 _moveVector;
 
     private void Awake()
@@ -40,7 +38,6 @@ public class Movement : MonoBehaviour
 
         RotateAim(stickDirection);
     }
-
 
     private void Update()
     {
@@ -72,13 +69,14 @@ public class Movement : MonoBehaviour
     {
         if (direction == Vector2.zero) return;
 
-         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + _cam.transform.eulerAngles.y;
-
-         transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + _cam.transform.eulerAngles.y;
          
-         // float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _cam.eulerAngles.y;
-         // float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
-         // transform.rotation = Quaternion.Euler(0f, angle, 0f);
+         
+        transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
+         
+        // float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _cam.eulerAngles.y;
+        // float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, turnSmoothTime);
+        // transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
 
     private void ApplyGravity()

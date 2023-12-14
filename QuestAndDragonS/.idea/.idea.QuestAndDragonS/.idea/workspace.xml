@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4956e121-9776-4310-8562-5dd24e82014f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QuestAndDragonS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QuestAndDragonS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZIdle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/EZIdle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PeaBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PeaBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestEnemy.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestEnemy.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/ZombieBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/ZombieFSM/ZombieBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Plants/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Plants/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Plants/SunFlower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Plants/SunFlower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +90,7 @@
       <workItem from="1701197843397" duration="6444000" />
       <workItem from="1701273374484" duration="2833000" />
       <workItem from="1701345127675" duration="8189000" />
-      <workItem from="1702557697033" duration="1858000" />
+      <workItem from="1702557697033" duration="5588000" />
     </task>
     <servers />
   </component>

@@ -61,7 +61,9 @@ public class ZombieBehaviour : FSM
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectRange);
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

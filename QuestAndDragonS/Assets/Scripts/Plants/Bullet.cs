@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private float lifeTime;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float damage;
+    [SerializeField] private float damage =1f;
     private float currentLifeTime;
     public Vector3 lookRot;
 

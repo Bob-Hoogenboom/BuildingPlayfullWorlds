@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
         if (hp != null)
         {
             Debug.Log("HP DOWN");
+            hp.TakeDamage(damage);
         }
         
         gameObject.SetActive(false);

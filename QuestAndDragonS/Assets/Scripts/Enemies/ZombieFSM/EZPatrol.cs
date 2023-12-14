@@ -32,6 +32,7 @@ public class EZPatrol : State
         if (distanceToWalkPoint.magnitude < 1f)
         {
             _walkPointSet = false;
+            fsm.SwitchState(((ZombieBehaviour)fsm).idleState);
         }
         
         //if the player gets too close the zombie switches to chase state
@@ -50,7 +51,7 @@ public class EZPatrol : State
         Vector3 zombiePos = ((ZombieBehaviour) fsm).transform.position;
         walkPoint = new Vector3(zombiePos.x + randomX, zombiePos.y, zombiePos.z + randomZ);
 
-        if (Physics.Raycast(walkPoint, -((ZombieBehaviour) fsm).transform.up, 2f, ((ZombieBehaviour) fsm).groundMask))
+        if (Physics.Raycast(walkPoint, -((ZombieBehaviour) fsm).transform.up, 5f, ((ZombieBehaviour) fsm).groundMask))
         {
             _walkPointSet = true;
         }

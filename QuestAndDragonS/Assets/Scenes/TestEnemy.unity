@@ -187,6 +187,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1865422292109524082, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: equippablePlants.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865422292109524082, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: equippablePlants.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee389b9226e54084fb0c7f7249a9bc05, type: 2}
     - target: {fileID: 7375983281920995894, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: m_Name
       value: CH_PlayerPot
@@ -1278,6 +1286,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 919132147701825721, guid: 0fceccde2394f0543bd411ef86236d5a, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147701825721, guid: 0fceccde2394f0543bd411ef86236d5a, type: 3}
+      propertyPath: detectRange
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147701825721, guid: 0fceccde2394f0543bd411ef86236d5a, type: 3}
+      propertyPath: walkPointRange
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025723576440935410, guid: 0fceccde2394f0543bd411ef86236d5a, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025723576440935410, guid: 0fceccde2394f0543bd411ef86236d5a, type: 3}
+      propertyPath: m_Acceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025723576440935410, guid: 0fceccde2394f0543bd411ef86236d5a, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7352930287019477490, guid: 0fceccde2394f0543bd411ef86236d5a, type: 3}
       propertyPath: m_RootOrder
       value: 2

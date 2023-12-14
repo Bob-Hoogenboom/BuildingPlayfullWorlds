@@ -47,12 +47,11 @@ public class ZombieBehaviour : FSM
 
     private void Update()
     {
+        base.Update();
         Vector3 pos = transform.position;
-        detectSpherePos = new Vector3(pos.x, pos.y, pos.z + detectRange / 2);
-        attackSpherePos = new Vector3(pos.x, pos.y, pos.z + attackRange / 2);
 
-        playerInDetectRange = Physics.CheckSphere(detectSpherePos, detectRange, playerMask);
-        playerInAttackRange = Physics.CheckSphere(attackSpherePos, attackRange, playerMask);
+        playerInDetectRange = Physics.CheckSphere(pos, detectRange, playerMask);
+        playerInAttackRange = Physics.CheckSphere(pos, attackRange, playerMask);
     }
 
     protected override State GetInitialState()
@@ -62,11 +61,7 @@ public class ZombieBehaviour : FSM
 
     private void OnDrawGizmos()
     {
-        Vector3 pos = transform.position;
-        detectSpherePos = new Vector3(pos.x, pos.y, pos.z + detectRange / 2);
-        attackSpherePos = new Vector3(pos.x, pos.y, pos.z + attackRange / 2);
-        
-        Gizmos.DrawWireSphere(detectSpherePos, detectRange);
-        Gizmos.DrawWireSphere(attackSpherePos, attackRange);
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

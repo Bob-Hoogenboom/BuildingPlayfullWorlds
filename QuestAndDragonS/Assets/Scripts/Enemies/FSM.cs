@@ -17,7 +17,7 @@ public class FSM : MonoBehaviour
             currentState.Enter();
     }
 
-     private void Update()
+     public void Update()
     {
         currentState?.UpdateLogic();
     }

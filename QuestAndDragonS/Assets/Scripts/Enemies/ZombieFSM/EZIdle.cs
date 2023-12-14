@@ -4,7 +4,7 @@ public class EZIdle : State
 {
     public EZIdle(ZombieBehaviour zombieSm) : base("Idle", zombieSm) { }
 
-    private float _timer = 5f;
+    private float _timer = 3f;
     private float _curTimer;
 
     public override void Enter()

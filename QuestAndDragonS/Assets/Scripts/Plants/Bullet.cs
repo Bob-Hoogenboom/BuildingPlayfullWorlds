@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private float lifeTime;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float damage =1f;
+    [SerializeField] private int damage = 1;
     private float currentLifeTime;
     public Vector3 lookRot;
 
@@ -26,12 +26,14 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player")) return;
-        Health hp = other.gameObject.GetComponent<Health>();
+
+        var hp = other.gameObject.GetComponent<IDamageable>();
 
         if (hp != null)
         {
             Debug.Log("HP DOWN");
-            hp.TakeDamage(damage);
+            hp.Damage(damage);
+
         }
         
         gameObject.SetActive(false);

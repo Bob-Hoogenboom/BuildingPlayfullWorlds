@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour, IDamageable
 {
     [SerializeField] private float speed;
+    [SerializeField] private float health = 10f;
 
     private Camera _cam;
     private Vector3 _gravity;
     private float _turnSmoothVelocity;
     private CharacterController _charCon;
     private Vector2 _moveVector;
+
 
     private void Awake()
     {
@@ -94,6 +96,15 @@ public class Movement : MonoBehaviour
             _gravity.y = 0;
         }
     }
-
     private bool IsGrounded() => _charCon.isGrounded;
+
+    public void Damage(float amount)
+    {
+        health -= amount;
+        if(health <= 0)
+        {
+            //Disable controls
+            //GameOver Screen
+        }
+    }
 }

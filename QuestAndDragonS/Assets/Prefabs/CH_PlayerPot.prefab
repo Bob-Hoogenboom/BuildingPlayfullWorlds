@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7375983281920995881}
   - component: {fileID: 7375983281920995895}
   - component: {fileID: 907861328}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CH_PlayerPot
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  health: 10
 --- !u!114 &7375983281920995881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +271,7 @@ GameObject:
   - component: {fileID: 7682481698832387271}
   - component: {fileID: 7682481698832387270}
   - component: {fileID: 7682481698832387269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlantSocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3363630408825440834}
   - component: {fileID: 1865422292109524082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlantHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,9 +19,18 @@ public class SunFlower : PlantHandler
         Collider[] hitColliders = Physics.OverlapSphere (transform.position, flashRadius);
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.GetComponent<Health>())
+            var hp = hitCollider.gameObject.GetComponent<IDamageable>();
+
+            if (hp != null)
             {
-                Debug.Log("STUNNED + DAMAGE");
+                hp.Damage(damage);
+            }
+
+            var stun = hitCollider.gameObject.GetComponent<IStunned>();
+            if (stun != null)
+            {
+                Debug.Log("GET STUNNED!");
+                stun.Stunned();
             }
         }
     }

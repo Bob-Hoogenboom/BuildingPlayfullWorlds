@@ -2,36 +2,45 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
-public class ZombieBehaviour : FSM
+public class ZombieBehaviour : FSM, IDamageable, IStunned
 {
-
+    [HideInInspector]
     public EZIdle idleState;
     public EZPatrol patrolState;
     public EZChase chaseState;
     public EZAttack attackState;
     public EZDeath deathState;
+    public EZStun stunState;
 
-    [Header("Detection")] 
-    public LayerMask groundMask;
-    public LayerMask playerMask;
+    [Header("Detection")]
     [SerializeField] private float detectRange;
     [SerializeField] private float attackRange;
-    
-    //Patrol Variables:
-    public float walkPointRange;
-    
-    //Attacking
-    public float timeBetweenAttacks;
 
-
-    public bool playerInDetectRange, playerInAttackRange;
+    public LayerMask groundMask;
+    public LayerMask playerMask;
 
     public NavMeshAgent navAgent;
     public Transform player;
 
-    private Vector3 detectSpherePos;
-    private Vector3 attackSpherePos;
+    public bool playerInDetectRange, playerInAttackRange;
+
+    //private Vector3 detectSpherePos;
+    //private Vector3 attackSpherePos;
+
+    [Header("Patrol")]
+    public float walkPointRange;
+
+    [Header("Attack")]
+    public float timeBetweenAttacks;
+
+    [Header("Stun")]
+    public UnityEvent OnStunned;
+
+    [Header("Health")]
+    public float health = 5;
+    public float damage = 1;
 
     private void Awake()
     {
@@ -40,6 +49,7 @@ public class ZombieBehaviour : FSM
         chaseState = new EZChase(this);
         attackState = new EZAttack(this);
         deathState = new EZDeath(this);
+        stunState = new EZStun(this);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
@@ -65,5 +75,20 @@ public class ZombieBehaviour : FSM
         Gizmos.DrawWireSphere(transform.position, detectRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void Damage(float amount)
+    {
+        health -= amount;
+
+        if(health <= 0)
+        {
+            SwitchState(deathState);
+        }
+    }
+
+    public void Stunned()
+    {
+        SwitchState(stunState);
     }
 }

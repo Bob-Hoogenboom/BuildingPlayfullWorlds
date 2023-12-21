@@ -7,7 +7,6 @@ public class EZChase : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Zombie: Enter ChaseState");
     }
 
     public override void UpdateLogic()
@@ -24,6 +23,5 @@ public class EZChase : State
         {
             fsm.SwitchState(((ZombieBehaviour)fsm).idleState);
         }
-        Debug.Log("Zombie: Update ChaseState");
     }
 }

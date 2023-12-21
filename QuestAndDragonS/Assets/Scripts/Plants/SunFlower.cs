@@ -9,6 +9,7 @@ public class SunFlower : PlantHandler
     private EquipSystem _equipSystem;
     
     public UnityEvent onShoot;
+    [SerializeField] private LayerMask enemyMask;
     [SerializeField] private float flashRadius = 4f;
     [SerializeField] private float damage = .25f;
 
@@ -16,7 +17,7 @@ public class SunFlower : PlantHandler
     {
         onShoot.Invoke();
         
-        Collider[] hitColliders = Physics.OverlapSphere (transform.position, flashRadius);
+        Collider[] hitColliders = Physics.OverlapSphere (transform.position, flashRadius, enemyMask);
         foreach (var hitCollider in hitColliders)
         {
             var hp = hitCollider.gameObject.GetComponent<IDamageable>();

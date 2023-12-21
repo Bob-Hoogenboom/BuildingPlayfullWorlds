@@ -4,15 +4,11 @@ public class EZDeath : State
 {
     public EZDeath(ZombieBehaviour zombieSm) : base("Death", zombieSm) { }
 
+    private Vector3 _deathRotation = new Vector3(0f,0f,90f);
+
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Zombie: Enter DeathState");
-    }
-
-    public override void UpdateLogic()
-    {
-        base.UpdateLogic();
-        Debug.Log("Zombie: Update DeathState");
+        ((ZombieBehaviour)fsm).transform.Rotate(_deathRotation);
     }
 }

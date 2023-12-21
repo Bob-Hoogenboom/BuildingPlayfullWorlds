@@ -11,7 +11,6 @@ public class EZIdle : State
     {
         base.Enter();
         _curTimer = _timer;
-        Debug.Log("Zombie: Enter IdleState");
     }
 
     public override void UpdateLogic()

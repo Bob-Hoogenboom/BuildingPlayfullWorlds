@@ -33,7 +33,8 @@ public class ZombieBehaviour : FSM, IDamageable, IStunned
     public float walkPointRange;
 
     [Header("Attack")]
-    public float timeBetweenAttacks;
+    [Tooltip("Seconds between every attack")]
+    public float timeBetweenAttacks = 3f;
 
     [Header("Stun")]
     public UnityEvent OnStunned;
@@ -69,14 +70,6 @@ public class ZombieBehaviour : FSM, IDamageable, IStunned
         return idleState;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectRange);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
-
     public void Damage(float amount)
     {
         health -= amount;
@@ -89,6 +82,22 @@ public class ZombieBehaviour : FSM, IDamageable, IStunned
 
     public void Stunned()
     {
-        SwitchState(stunState);
+        //DRY?
+        if (health <= 0)
+        {
+            SwitchState(deathState);
+        }
+        else
+        {
+            SwitchState(stunState);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

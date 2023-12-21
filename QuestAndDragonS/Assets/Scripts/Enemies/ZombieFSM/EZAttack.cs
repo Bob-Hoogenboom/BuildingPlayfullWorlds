@@ -1,14 +1,12 @@
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using System.Collections;
 
 public class EZAttack : State
 {
     public EZAttack(ZombieBehaviour zombieSm) : base("Attack", zombieSm) { }
 
-    
     private bool _hasAttacked;
-    private float _attackCoolDown = 2f;
-    private float _curAttackCoolDown;
 
 
     public override void Enter()
@@ -36,29 +34,36 @@ public class EZAttack : State
             }
 
             _hasAttacked = true;
-            ResetAttack();
+            ((ZombieBehaviour)fsm).StartCoroutine(ResetAttack());
         }
-        
         
         if (((ZombieBehaviour)fsm).playerInDetectRange && !((ZombieBehaviour)fsm).playerInAttackRange)
         {
             fsm.SwitchState(((ZombieBehaviour)fsm).chaseState);
         }
-        Debug.Log("Zombie: Update AttackState");
     }
 
-    private void ResetAttack()
+    IEnumerator ResetAttack()
     {
-        while(_hasAttacked == true)
+        yield return new WaitForSeconds(((ZombieBehaviour)fsm).timeBetweenAttacks);
+        _hasAttacked = false;
+    }
+
+/*    private void ResetAttack()
+    {
+        while (_hasAttacked == true)
         {
+            Debug.Log("resetAttack" + _curAttackCoolDown);
             _curAttackCoolDown -= Time.deltaTime;
             if (_curAttackCoolDown <= 0f)
             {
+                Debug.Log("resetting. . . " + _curAttackCoolDown);
                 _curAttackCoolDown = _attackCoolDown;
                break;
             }
+            break;
         }
 
         _hasAttacked = false;
-    }
+    }*/
 }

@@ -12,7 +12,6 @@ public class EZStun : State
         base.Enter();
         _curTimer = _stunTime;
         ((ZombieBehaviour)fsm).OnStunned.Invoke();
-        Debug.Log("Zombie: Enter stunstate");
     }
 
     public override void UpdateLogic()
@@ -24,7 +23,8 @@ public class EZStun : State
             _curTimer = _stunTime;
             fsm.SwitchState(((ZombieBehaviour)fsm).idleState);
         }
-        
+
         _curTimer -= Time.deltaTime;
+        Debug.Log(_curTimer);
     }
 }

@@ -9035,6 +9035,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096ebaaad637a7d40810fb158ff0f6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 256
+  flashRadius: 4
+  damage: 0.25
 --- !u!1 &8070568702485864295
 GameObject:
   m_ObjectHideFlags: 0

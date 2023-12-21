@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 919132147701825721}
   - component: {fileID: 8158131910735715793}
   - component: {fileID: 7025723576440935410}
+  - component: {fileID: 6019778107856966142}
   m_Layer: 0
   m_Name: CH_FootSoldier
   m_TagString: Untagged
@@ -84,7 +85,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 1.5
   m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 300
@@ -96,6 +97,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6019778107856966142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872586336231854920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ea5ca4ecc116e4fbac58e28e607f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 5
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3331327568664990336
 PrefabInstance:
   m_ObjectHideFlags: 0

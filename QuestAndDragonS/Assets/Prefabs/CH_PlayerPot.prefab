@@ -402,5 +402,3 @@ MonoBehaviour:
   equippablePlants:
   - {fileID: 11400000, guid: 8ffcbfae0c475204aa891220363286ca, type: 2}
   - {fileID: 11400000, guid: 36f3ac736826a0b448b7d0514e251a58, type: 2}
-  - {fileID: 11400000, guid: 56b9c3542bf5d1245b905a571d4b6142, type: 2}
-  - {fileID: 11400000, guid: ee389b9226e54084fb0c7f7249a9bc05, type: 2}

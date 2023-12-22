@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class Movement : MonoBehaviour, IDamageable
 {
     [SerializeField] private float speed;
     [SerializeField] private float health = 10f;
+
+    public UnityEvent OnDeath;
 
     private Camera _cam;
     private Vector3 _gravity;
@@ -95,8 +98,8 @@ public class Movement : MonoBehaviour, IDamageable
         health -= amount;
         if(health <= 0)
         {
-            //Disable controls
-            //GameOver Screen
+            OnDeath.Invoke();
+            Time.timeScale = 0;
         }
     }
 }

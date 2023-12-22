@@ -63,6 +63,9 @@ MonoBehaviour:
   OnStunned:
     m_PersistentCalls:
       m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   health: 5
   damage: 1
 --- !u!136 &8158131910735715793
@@ -89,7 +92,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.5
+  m_Speed: 2.5
   m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 300

@@ -35,9 +35,9 @@ public class FSM : MonoBehaviour
     }
     
     //debug stuff
-    private void OnGUI()
+/*    private void OnGUI()
     {
         string content = currentState != null ? currentState.name : "(No Current State)";
         GUILayout.Label($"<color='black'><size=40>{content}</size></color>");
-    }
+    }*/
 }

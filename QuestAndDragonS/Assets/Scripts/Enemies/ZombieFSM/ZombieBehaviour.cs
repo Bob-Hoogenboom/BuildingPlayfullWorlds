@@ -40,6 +40,9 @@ public class ZombieBehaviour : FSM, IDamageable, IStunned
     public UnityEvent OnStunned;
 
     [Header("Health")]
+    private bool _isDeath = false;
+    public UnityEvent OnDeath;
+
     public float health = 5;
     public float damage = 1;
 
@@ -74,8 +77,9 @@ public class ZombieBehaviour : FSM, IDamageable, IStunned
     {
         health -= amount;
 
-        if(health <= 0)
+        if (health <= 0 && !_isDeath)
         {
+            _isDeath = true;
             SwitchState(deathState);
         }
     }
@@ -83,8 +87,9 @@ public class ZombieBehaviour : FSM, IDamageable, IStunned
     public void Stunned()
     {
         //DRY?
-        if (health <= 0)
+        if (health <= 0 && !_isDeath)
         {
+            _isDeath = true;
             SwitchState(deathState);
         }
         else

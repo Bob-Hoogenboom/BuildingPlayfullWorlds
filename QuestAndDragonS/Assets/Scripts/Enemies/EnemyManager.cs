@@ -25,4 +25,16 @@ public class EnemyManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("MainMenu");
     }
+
+
+    public void Defeated()
+    {
+        StartCoroutine(Defeat());
+    }
+
+    IEnumerator Defeat()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("MainMenu");
+    }
 }

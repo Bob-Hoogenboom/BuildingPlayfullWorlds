@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rigidbody;
+    [SerializeField] private Rigidbody rb;
     [SerializeField] private float lifeTime;
     [SerializeField] private float speed = 5f;
     [SerializeField] private int damage = 1;
@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
         if (currentLifeTime > 0)
         {
             currentLifeTime -= Time.deltaTime;
-            rigidbody.velocity = lookRot  * speed;
+            rb.velocity = lookRot  * speed;
         }
         else
         {
@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) return;
 
-        var hp = other.gameObject.GetComponent<IDamageable>();
+        var hp = other.gameObject.GetComponent<IDealDamage>();
 
         if (hp != null)
         {

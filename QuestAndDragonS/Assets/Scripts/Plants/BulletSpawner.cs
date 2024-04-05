@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+
+/// <summary>
+/// # Why do we even have this if it gets destroyted with the peashooter object???
+/// # Just instantiate a bullet! You premature optimizationing f@cker!!!
+/// </summary>
 public class BulletSpawner : MonoBehaviour
 {
     public static BulletSpawner instance;
@@ -24,6 +29,8 @@ public class BulletSpawner : MonoBehaviour
 
     private void Start()
     {
+        if (_pooledObjects.Count >= _amountInPool) return;
+
         for (int i = 0; i < _amountInPool; i++)
         {
             GameObject obj = Instantiate(bulletPrefab);

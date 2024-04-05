@@ -2,17 +2,24 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class Movement : MonoBehaviour, IDamageable
+public class Movement : MonoBehaviour, IDealDamage, IHaveHP
 {
+    [Header("General")]
     [SerializeField] private float speed;
     [SerializeField] private float health = 10f;
 
+    public float HitPoints
+    {
+        get => health;
+        set => health = value;
+    }
+
+    [Header("Events")]
     public UnityEvent OnDeath;
 
+    private CharacterController _charCon;
     private Camera _cam;
     private Vector3 _gravity;
-    private float _turnSmoothVelocity;
-    private CharacterController _charCon;
     private Vector2 _moveVector;
 
 
@@ -93,6 +100,8 @@ public class Movement : MonoBehaviour, IDamageable
     }
     private bool IsGrounded() => _charCon.isGrounded;
 
+
+    #region ITakeHitsLogic
     public void Damage(float amount)
     {
         health -= amount;
@@ -102,4 +111,5 @@ public class Movement : MonoBehaviour, IDamageable
             Time.timeScale = 0;
         }
     }
+    #endregion
 }

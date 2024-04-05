@@ -1,14 +1,23 @@
-using UnityEngine;
-using UnityEngine.Events;
+/// <summary>
+/// Interafec class containing all Interfaces
+/// </summary>
 
-//basic damage interface if something can break or die
-public interface IDamageable
+//Interfaces for dealing damage
+public interface IDealDamage
 { 
     public void Damage (float amount);
 }
 
-//if something can get stunned
-public interface IStunned
+//Interface for having HitPoints 
+public interface IHaveHP
 {
-    public void Stunned();
+    public float HitPoints { get; set; }
+}
+
+//Interface for statemachines to not rely on knowing what states it contains
+public interface IState
+{
+    public void Enter();
+    public void Execute();
+    public void Exit();
 }

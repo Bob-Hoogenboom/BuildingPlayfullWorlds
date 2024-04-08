@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : IState
+public class AttackState : IState
 {
-    private ActorZombie actor;
-    //Constructor
-    public IdleState(ActorZombie actor) {
+    ActorZombie actor;
+
+    public float attackDelay;
+
+    private bool hasAttacked;
+
+    public AttackState(ActorZombie actor)
+    {
         this.actor = actor;
     }
 
     public void Enter()
     {
-        Debug.Log("IdleState.Enter()");
+        Debug.Log("AttackState.Enter()");
     }
 
     public void Execute()
     {
+        if (!actor.inChaseRange && !actor.inAttackRange) ToNextState(new IdleState(actor));
         if (actor.inChaseRange && !actor.inAttackRange) ToNextState(new ChaseState(actor));
-        if (actor.inChaseRange && actor.inAttackRange) ToNextState(new AttackState(actor));
     }
 
     public void Exit()
     {
-        Debug.Log("IdleState.Exit()");
-        
+        Debug.Log("AttackState.Exit()");
     }
 
     public void ToNextState(IState newState)

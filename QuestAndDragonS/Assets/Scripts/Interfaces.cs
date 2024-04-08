@@ -20,4 +20,5 @@ public interface IState
     public void Enter();
     public void Execute();
     public void Exit();
+    public void ToNextState(IState nextState);
 }

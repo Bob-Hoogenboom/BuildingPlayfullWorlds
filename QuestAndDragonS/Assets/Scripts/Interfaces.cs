@@ -2,16 +2,11 @@
 /// Interafec class containing all Interfaces
 /// </summary>
 
-//Interfaces for dealing damage
-public interface IDealDamage
-{ 
-    public void Damage (float amount);
-}
-
-//Interface for having HitPoints 
-public interface IHaveHP
+//Interfaces for Taking damage
+public interface IDamagable
 {
     public float HitPoints { get; set; }
+    public void Damage (float amount);
 }
 
 //Interface for statemachines to not rely on knowing what states it contains

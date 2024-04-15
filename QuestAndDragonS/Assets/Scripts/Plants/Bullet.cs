@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) return;
 
-        var hp = other.gameObject.GetComponent<IDealDamage>();
+        var hp = other.gameObject.GetComponent<IDamagable>();
 
         if (hp != null)
         {

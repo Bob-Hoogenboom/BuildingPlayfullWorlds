@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PatrolState : IState
 {
@@ -6,11 +7,10 @@ public class PatrolState : IState
 
     [Header("Patroling")]
     public Vector3 walkPoint;
-    public float walkPointRange;
+    public float walkPointRange = 10f;
     private bool walkPointSet;
     
 
-    //Constructor
     public PatrolState(ActorZombie actor)
     {
         this.actor = actor;
@@ -35,7 +35,6 @@ public class PatrolState : IState
 
         if(disToWalkPoint.magnitude <1)
         {
-            walkPointSet = false;
             ToNextState(new IdleState(actor));
         }
 
@@ -45,7 +44,8 @@ public class PatrolState : IState
 
     //Plays logic when exiting to a next state
     public void Exit()
-    { 
+    {
+        walkPointSet = false;
     }
 
     //Handles the transition to the next state
@@ -62,6 +62,7 @@ public class PatrolState : IState
 
         walkPoint = new Vector3(actor.transform.position.x + randomX, actor.transform.position.y, actor.transform.position.z + randomZ);
 
-        if (Physics.Raycast(walkPoint, -actor.transform.up, 2f, actor.groundMask)) walkPointSet = true;
+        //checks if the walkpoint is on the NavMesh 
+        if (NavMesh.SamplePosition(walkPoint, out _, 1.0f, NavMesh.AllAreas)) walkPointSet = true;
     }
 }

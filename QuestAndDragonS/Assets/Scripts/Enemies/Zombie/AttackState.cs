@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class AttackState : IState
 {
     ActorZombie actor;
 
-    public float attackDelay;
+    private float _attackDelay = .6f;
+    private bool _hasAttacked;
 
-    private bool hasAttacked;
 
     public AttackState(ActorZombie actor)
     {
@@ -17,22 +13,40 @@ public class AttackState : IState
 
     public void Enter()
     {
-        Debug.Log("AttackState.Enter()");
+        actor.agent.SetDestination(actor.transform.position);
     }
 
     public void Execute()
     {
+        actor.transform.LookAt(actor.player);
+        if (!_hasAttacked)
+        {
+            //Attack Logic
+            IDamagable iDamagable = actor.player.gameObject.GetComponent<IDamagable>();
+            if (iDamagable == null) return;
+
+            iDamagable.Damage(actor.damage);
+
+            _hasAttacked = true;
+            //# maybe replace with a timer so it doesn't need monobehaviour???
+            actor.Invoke(nameof(ResetAttack), _attackDelay);
+        }
+
         if (!actor.inChaseRange && !actor.inAttackRange) ToNextState(new IdleState(actor));
         if (actor.inChaseRange && !actor.inAttackRange) ToNextState(new ChaseState(actor));
     }
 
     public void Exit()
     {
-        Debug.Log("AttackState.Exit()");
     }
 
     public void ToNextState(IState newState)
     {
         actor.stateMachine.ChangeState(newState);
+    }
+
+    private void ResetAttack()
+    {
+        _hasAttacked = false;
     }
 }

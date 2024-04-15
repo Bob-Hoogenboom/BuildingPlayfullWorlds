@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class Movement : MonoBehaviour, IDealDamage, IHaveHP
+public class Movement : MonoBehaviour, IDamagable
 {
     [Header("General")]
     [SerializeField] private float speed;
@@ -101,7 +101,7 @@ public class Movement : MonoBehaviour, IDealDamage, IHaveHP
     private bool IsGrounded() => _charCon.isGrounded;
 
 
-    #region ITakeHitsLogic
+    #region IDamageable Logic
     public void Damage(float amount)
     {
         health -= amount;

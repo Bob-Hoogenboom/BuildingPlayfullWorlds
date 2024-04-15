@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ActorZombie : MonoBehaviour
+public class ActorZombie : MonoBehaviour , IDamagable
 {
     [Header("Refernces")]
     public StateMachine stateMachine = new StateMachine();
@@ -9,12 +9,21 @@ public class ActorZombie : MonoBehaviour
     public Transform player;
 
     [Header("Detection")]
-    public LayerMask groundMask;
     public LayerMask playerMask;
     public float chaseRange;
     public float attackRange;
     public bool inChaseRange;
     public bool inAttackRange;
+
+    [Header("Health")]
+    public float damage = 1f;
+
+    [SerializeField] private float health = 3f;
+    public float HitPoints
+    {
+        get => health;
+        set => health = value;
+    }
 
     private void Awake()
     {
@@ -37,6 +46,15 @@ public class ActorZombie : MonoBehaviour
     {
         inChaseRange = Physics.CheckSphere(transform.position, chaseRange, playerMask);
         inAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
+    }
+
+    public void Damage(float amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            stateMachine.ChangeState(new IdleState(this));
+        }
     }
 
     private void OnDrawGizmos()

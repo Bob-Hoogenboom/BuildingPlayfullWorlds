@@ -2,7 +2,7 @@ public class ChaseState : IState
 {
     private ActorZombie actor;
 
-    //Constructor
+
     public ChaseState(ActorZombie actor)
     {
         this.actor = actor;

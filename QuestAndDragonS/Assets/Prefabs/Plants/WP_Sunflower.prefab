@@ -9042,7 +9042,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   flashRadius: 4
-  damage: 0.25
+  damage: 5
 --- !u!1 &8070568702485864295
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,7 +56,10 @@ public class BulletSpawner : MonoBehaviour
     {
         for (int i = 0; i < _pooledObjects.Count; i++)
         {
-            Destroy(_pooledObjects[i]);
+            if (!_pooledObjects[i].activeInHierarchy)
+            {
+                Destroy(_pooledObjects[i]);
+            }
         }
 
         _pooledObjects.Clear();

@@ -6,6 +6,7 @@ public class ActorZombie : MonoBehaviour , IDamagable
     [Header("Refernces")]
     public StateMachine stateMachine = new StateMachine();
     public NavMeshAgent agent;
+    public Animator animator;
     public Transform player;
 
     [Header("Detection")]
@@ -17,8 +18,9 @@ public class ActorZombie : MonoBehaviour , IDamagable
 
     [Header("Health")]
     public float damage = 1f;
-
     [SerializeField] private float health = 3f;
+
+
     public float HitPoints
     {
         get => health;
@@ -27,8 +29,9 @@ public class ActorZombie : MonoBehaviour , IDamagable
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Start()
@@ -53,7 +56,7 @@ public class ActorZombie : MonoBehaviour , IDamagable
         health -= amount;
         if (health <= 0)
         {
-            stateMachine.ChangeState(new IdleState(this));
+            stateMachine.ChangeState(new DeathState(this));
         }
     }
 

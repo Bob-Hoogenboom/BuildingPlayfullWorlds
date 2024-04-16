@@ -8,25 +8,27 @@ public class PatrolState : IState
     [Header("Patroling")]
     public Vector3 walkPoint;
     public float walkPointRange = 10f;
-    private bool walkPointSet;
-    
+    private bool _walkPointSet;
+    private int _isPatrollingHash;
 
     public PatrolState(ActorZombie actor)
     {
         this.actor = actor;
+        _isPatrollingHash = Animator.StringToHash("IsPatrolling");
     }
 
     //Plays logic entering this state after exiting the last
     public void Enter()
     {
+        actor.animator.SetBool(_isPatrollingHash, true);
     }
 
     //Plays logic every frame synchronized with Update()
     public void Execute()
     {
-        if (!walkPointSet) GetNewWalkPoint();
+        if (!_walkPointSet) GetNewWalkPoint();
 
-        if (walkPointSet)
+        if (_walkPointSet)
         {
             actor.agent.SetDestination(walkPoint);
         }
@@ -45,7 +47,8 @@ public class PatrolState : IState
     //Plays logic when exiting to a next state
     public void Exit()
     {
-        walkPointSet = false;
+        _walkPointSet = false;
+        actor.animator.SetBool(_isPatrollingHash, false);
     }
 
     //Handles the transition to the next state
@@ -63,6 +66,6 @@ public class PatrolState : IState
         walkPoint = new Vector3(actor.transform.position.x + randomX, actor.transform.position.y, actor.transform.position.z + randomZ);
 
         //checks if the walkpoint is on the NavMesh 
-        if (NavMesh.SamplePosition(walkPoint, out _, 1.0f, NavMesh.AllAreas)) walkPointSet = true;
+        if (NavMesh.SamplePosition(walkPoint, out _, 1.0f, NavMesh.AllAreas)) _walkPointSet = true;
     }
 }

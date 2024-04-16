@@ -8,16 +8,19 @@ public class IdleState : IState
     private ActorZombie actor;
     private float _timer = 3f;
     private float _currentTime;
+    private int _isIdleHash;
 
 
     public IdleState(ActorZombie actor) {
         this.actor = actor;
+        _isIdleHash = Animator.StringToHash("IsIdle");
     }
 
     //Plays logic entering this state after exiting the last
     public void Enter()
     {
         _currentTime = _timer;
+        actor.animator.SetBool(_isIdleHash, true);
     }
 
     public void Execute()
@@ -35,7 +38,8 @@ public class IdleState : IState
     }
 
     public void Exit()
-    {        
+    {
+        actor.animator.SetBool(_isIdleHash, false);
     }
 
     public void ToNextState(IState newState)

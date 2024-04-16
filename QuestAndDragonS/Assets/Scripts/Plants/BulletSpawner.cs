@@ -51,4 +51,14 @@ public class BulletSpawner : MonoBehaviour
 
         return null;
     }
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < _pooledObjects.Count; i++)
+        {
+            Destroy(_pooledObjects[i]);
+        }
+
+        _pooledObjects.Clear();
+    }
 }

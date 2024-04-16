@@ -1,16 +1,20 @@
+using UnityEngine;
+
 public class ChaseState : IState
 {
     private ActorZombie actor;
-
+    private int _isChasingHash;
 
     public ChaseState(ActorZombie actor)
     {
         this.actor = actor;
+        _isChasingHash = Animator.StringToHash("IsChasing");
     }
 
     //Plays logic entering this state after exiting the last
     public void Enter()
     {
+        actor.animator.SetBool(_isChasingHash, true);
     }
 
     //Plays logic every frame synchronized with Update()
@@ -25,6 +29,7 @@ public class ChaseState : IState
     //Plays logic when exiting to a next state
     public void Exit()
     {
+        actor.animator.SetBool(_isChasingHash, false);
     }
 
     //Handles the transition to the next state

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8544915156360698802}
   - component: {fileID: 5379946224588320826}
   m_Layer: 0
-  m_Name: SunRipple
+  m_Name: PS_SunRipple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

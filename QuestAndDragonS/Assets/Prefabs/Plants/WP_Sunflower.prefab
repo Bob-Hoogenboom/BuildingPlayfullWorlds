@@ -10128,12 +10128,20 @@ PrefabInstance:
       value: SunRipple
       objectReference: {fileID: 0}
     - target: {fileID: 8544915156360698802, guid: 9afffd4bb12898d4995b9d52fe9bdb17, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544915156360698802, guid: 9afffd4bb12898d4995b9d52fe9bdb17, type: 3}
       propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8544915156360698802, guid: 9afffd4bb12898d4995b9d52fe9bdb17, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544915156360698802, guid: 9afffd4bb12898d4995b9d52fe9bdb17, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9afffd4bb12898d4995b9d52fe9bdb17, type: 3}

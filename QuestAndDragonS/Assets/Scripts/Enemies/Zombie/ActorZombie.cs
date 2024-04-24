@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.AI;
 
 public class ActorZombie : MonoBehaviour , IDamagable
@@ -17,18 +18,22 @@ public class ActorZombie : MonoBehaviour , IDamagable
     public bool inAttackRange;
 
     [Header("Health")]
+    public UnityEvent<float, float> onDamage;
     public float damage = 1f;
     [SerializeField] private float health = 3f;
+    private float currentHealth;
 
 
     public float HitPoints
     {
         get => health;
-        set => health = value;
+        set => currentHealth = value;
     }
 
     private void Awake()
     {
+        currentHealth = health;
+        onDamage.Invoke(currentHealth, health);
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -53,8 +58,9 @@ public class ActorZombie : MonoBehaviour , IDamagable
 
     public void Damage(float amount)
     {
-        health -= amount;
-        if (health <= 0)
+        currentHealth -= amount;
+        onDamage.Invoke(currentHealth, health);
+        if (currentHealth <= 0)
         {
             stateMachine.ChangeState(new DeathState(this));
         }

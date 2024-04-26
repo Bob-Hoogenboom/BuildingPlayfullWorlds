@@ -8,6 +8,11 @@ public class FloatingHealthBar : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
 
+    private void Start()
+    {
+        cam = Camera.main;
+    }
+
     public void UpdateSlider(float currentValue, float maxValue)
     {
         slider.value = currentValue/ maxValue;

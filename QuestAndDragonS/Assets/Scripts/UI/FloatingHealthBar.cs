@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FloatingHealthBar : MonoBehaviour
+public class FloatingHealthBar : MonoBehaviour 
 {
     [SerializeField] private Slider slider;
     [SerializeField] private Camera cam;

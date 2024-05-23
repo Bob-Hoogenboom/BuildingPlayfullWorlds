@@ -71,13 +71,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DodgeRoll"",
+                    ""type"": ""Button"",
+                    ""id"": ""30a989a2-bf57-423c-add2-7e08d969dc33"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""b4b7a806-5d78-49d8-843b-286948a3f716"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Tap"",
                     ""processors"": """",
                     ""groups"": ""PC"",
@@ -227,6 +236,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""LookStick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8ebeca0c-1d94-40bd-878e-f0fc8ea3c745"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""DodgeRoll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""714ef4c9-951a-4c6b-a434-391a27263802"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""DodgeRoll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -268,6 +299,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SwapPlant = m_Player.FindAction("SwapPlant", throwIfNotFound: true);
         m_Player_LookMouse = m_Player.FindAction("LookMouse", throwIfNotFound: true);
         m_Player_LookStick = m_Player.FindAction("LookStick", throwIfNotFound: true);
+        m_Player_DodgeRoll = m_Player.FindAction("DodgeRoll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -334,6 +366,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SwapPlant;
     private readonly InputAction m_Player_LookMouse;
     private readonly InputAction m_Player_LookStick;
+    private readonly InputAction m_Player_DodgeRoll;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -343,6 +376,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @SwapPlant => m_Wrapper.m_Player_SwapPlant;
         public InputAction @LookMouse => m_Wrapper.m_Player_LookMouse;
         public InputAction @LookStick => m_Wrapper.m_Player_LookStick;
+        public InputAction @DodgeRoll => m_Wrapper.m_Player_DodgeRoll;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -367,6 +401,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @LookStick.started += instance.OnLookStick;
             @LookStick.performed += instance.OnLookStick;
             @LookStick.canceled += instance.OnLookStick;
+            @DodgeRoll.started += instance.OnDodgeRoll;
+            @DodgeRoll.performed += instance.OnDodgeRoll;
+            @DodgeRoll.canceled += instance.OnDodgeRoll;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -386,6 +423,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @LookStick.started -= instance.OnLookStick;
             @LookStick.performed -= instance.OnLookStick;
             @LookStick.canceled -= instance.OnLookStick;
+            @DodgeRoll.started -= instance.OnDodgeRoll;
+            @DodgeRoll.performed -= instance.OnDodgeRoll;
+            @DodgeRoll.canceled -= instance.OnDodgeRoll;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -428,5 +468,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSwapPlant(InputAction.CallbackContext context);
         void OnLookMouse(InputAction.CallbackContext context);
         void OnLookStick(InputAction.CallbackContext context);
+        void OnDodgeRoll(InputAction.CallbackContext context);
     }
 }

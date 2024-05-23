@@ -1248,7 +1248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621480957}
   m_LocalRotation: {x: 0, y: 0.7933534, z: -0.60876137, w: 0}
-  m_LocalPosition: {x: 0, y: 9.659258, z: 2.5881922}
+  m_LocalPosition: {x: 0, y: 9.759257, z: 2.0881922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1259,6 +1259,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7375983281920995894, guid: b0c38b2268136c743a346273daa56348, type: 3}
   m_PrefabInstance: {fileID: 1243384534}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &727315314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+  m_PrefabInstance: {fileID: 1243384534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727315310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8567b432f1d53064ba96560c987293e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &760230102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2432,7 +2443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196735674}
   m_LocalRotation: {x: 0, y: 0.7933534, z: -0.60876137, w: 0}
-  m_LocalPosition: {x: 0, y: 9.659258, z: 2.5881922}
+  m_LocalPosition: {x: 0, y: 9.759257, z: 2.0881922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 438593045}
@@ -2449,6 +2460,34 @@ PrefabInstance:
     - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: speed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: _dashTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: _dashDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: _dashCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: _dashCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: _dashCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: _dashCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: _dashCurve.m_Curve.Array.data[0].outSlope
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7375983281920995880, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
@@ -2510,6 +2549,46 @@ PrefabInstance:
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 30a989a2-bf57-423c-add2-7e08d969dc33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Player/DodgeRoll[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 727315314}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DodgeRollInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Movement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375983281920995881, guid: b0c38b2268136c743a346273daa56348, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7375983281920995894, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: m_Name
       value: CH_PlayerPot
@@ -2524,11 +2603,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7860770484519872652, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7860770484519872652, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7860770484519872652, guid: b0c38b2268136c743a346273daa56348, type: 3}
       propertyPath: m_LocalRotation.w

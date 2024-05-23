@@ -86,4 +86,8 @@ public class EquipSystem : MonoBehaviour, PlayerInputActions.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
     }
+
+    public void OnDodgeRoll(InputAction.CallbackContext context)
+    {
+    }
 }

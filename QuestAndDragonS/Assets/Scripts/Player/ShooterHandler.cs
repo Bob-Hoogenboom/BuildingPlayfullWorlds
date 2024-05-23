@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,18 +6,15 @@ public class ShooterHandler : MonoBehaviour, IEquipedObject
 
     private EquipSystem _equipSystem;
     public void OnMove(InputAction.CallbackContext context)
-    {
-        
+    { 
     }
 
     public void OnFire(InputAction.CallbackContext context)
-    {
-        
+    { 
     }
 
     public void OnSwapPlant(InputAction.CallbackContext context)
-    {
-        
+    { 
     }
 
     public void OnLookMouse(InputAction.CallbackContext context)
@@ -27,6 +22,9 @@ public class ShooterHandler : MonoBehaviour, IEquipedObject
     }
 
     public void OnLookStick(InputAction.CallbackContext context)
+    {
+    }
+    public void OnDodgeRoll(InputAction.CallbackContext context)
     {
     }
 
@@ -45,4 +43,5 @@ public class ShooterHandler : MonoBehaviour, IEquipedObject
     {
         
     }
+
 }

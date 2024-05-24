@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Final/MainMenu.unity
     guid: 6f6e01a49f534ce43b300a8885f00e9e
   - enabled: 1
-    path: Assets/Scenes/Final/Level1.unity
+    path: Assets/Scenes/Final/NeighbourVille.unity
     guid: f7de587e8c879514497b97a00d879b27
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 83610268f7928ad499dd6f4d57056d06, type: 2}

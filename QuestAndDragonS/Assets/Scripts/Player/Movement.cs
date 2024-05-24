@@ -10,13 +10,13 @@ public class Movement : MonoBehaviour, IDamagable
     [SerializeField] private float health = 10f;
 
     [Header("DodgeRoll")]
-    [SerializeField] private AnimationCurve _dashCurve;
-    [SerializeField ]private float _dashTime;
-    [SerializeField] private float _dashDistance;
+    [SerializeField] private AnimationCurve dodgeCurve;
+    [SerializeField ]private float dodgeTime = 0.2f;
+    [SerializeField] private float dodgeDistance = 3f;
 
     private Vector3 _lastMovedDirection;
-    private bool _isRolling = false;
-    private bool _canRoll = true;
+    private bool _isDodging = false;
+    private bool _canDodge = true;
 
     public float HitPoints
     {
@@ -63,12 +63,11 @@ public class Movement : MonoBehaviour, IDamagable
 
     public void DodgeRollInput(InputAction.CallbackContext context)
     {
-        if (!_canRoll) return;
+        if (!_canDodge) return;
         if (context.performed)
         {
-            StartCoroutine(DodgeRoll());
+            StartCoroutine(Dodge());
         }
-
     }
 
     private void Update()
@@ -80,7 +79,7 @@ public class Movement : MonoBehaviour, IDamagable
 
     private void Move()
     {
-        if (!(_moveVector.magnitude >= 0.1f) && _isRolling) return;
+        if (!(_moveVector.magnitude >= 0.1f) && _isDodging) return;
         
         Vector3 camForward = _cam.transform.forward;
         Vector3 camRight = _cam.transform.right;
@@ -98,6 +97,7 @@ public class Movement : MonoBehaviour, IDamagable
 
         Vector3 moveDir = forwardRelative + rightRelative;
 
+        //Save last moved direction for the Dodge mechanic
         _lastMovedDirection = moveDir;
 
         _charCon.Move(moveDir * speed * Time.deltaTime);
@@ -114,46 +114,56 @@ public class Movement : MonoBehaviour, IDamagable
 
     private void ApplyGravity()
     {
-        _gravity += Physics.gravity * Time.deltaTime;
-        _charCon.Move(_gravity);
-        if (IsGrounded())
+        if (IsGrounded() && !_isDodging)
         {
             _gravity.y = 0;
+            return;
         }
+        _gravity += Physics.gravity * Time.deltaTime;
+        _charCon.Move(_gravity);
     }
+    
+    //Simple is grounded function as a easy to access helper function
     private bool IsGrounded() => _charCon.isGrounded;
 
-    private IEnumerator DodgeRoll()
+    //Dodging mechanic via coroutine because of the Time benefits
+    private IEnumerator Dodge()
     {
-        
-        _isRolling = true;
-        _canRoll = false; //# set to true when the cooldown has expired
+        _isDodging = true;
+        _canDodge = false;
+
+        //get positions for the Lerp
         Vector3 startPos = transform.position;
-        Vector3 targetPos = transform.position + (_lastMovedDirection * _dashDistance);
-        float currentDashTime = _dashTime;
-        Debug.Log(targetPos);
-        while (currentDashTime > 0)
-        {
-            Debug.Log("Dodgerolling");
-            Debug.Log(currentDashTime);
-            Vector3 targetMotion = targetPos - transform.position;
-            float dashTimeNormal = (_dashTime / _dashTime) - (currentDashTime / _dashTime);
-            Vector3 newPos = Vector3.Lerp(startPos, targetPos, _dashCurve.Evaluate(dashTimeNormal));
-            _charCon.Move(targetMotion);
-            currentDashTime -= Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
+        Vector3 targetPos = transform.position + (_lastMovedDirection * dodgeDistance);
+
+        float currentDodgeTime = dodgeTime;
+        while (currentDodgeTime > 0)
+        { 
+            float dodgeTimeNormalized = 1 - (currentDodgeTime / dodgeTime);
+
+            //Move from position A to B with the animationCurve
+            Vector3 newPos = Vector3.Lerp(startPos, targetPos, dodgeCurve.Evaluate(dodgeTimeNormalized));
+            transform.position = newPos;
+
+            currentDodgeTime -= Time.deltaTime;
+            yield return null;
         }
 
-        Debug.Log("Dodgeroll End");
-        _isRolling = false;
-        _canRoll = true;
+        //make sure the player ends up in the right position
+        transform.position = targetPos;
+
+        _isDodging = false;
+        _canDodge = true; //# should be set to true after a cooldown
         yield return null;
     }
 
     #region IDamageable Logic
     public void Damage(float amount)
     {
-        health -= amount;
+        if (!_isDodging) 
+        { 
+            health -= amount;
+        }
 
         if (health <= 0)
         {

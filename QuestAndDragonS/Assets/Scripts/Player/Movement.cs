@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour, IDamagable
     [Header("General")]
     [SerializeField] private float speed;
     [SerializeField] private float health = 10f;
+    private bool _isDead = false;
 
     [Header("DodgeRoll")]
     [SerializeField] private AnimationCurve dodgeCurve;
@@ -165,10 +166,11 @@ public class Movement : MonoBehaviour, IDamagable
             health -= amount;
         }
 
-        if (health <= 0)
+        if (health <= 0 && !_isDead)
         {
+            _isDead = true;
             OnDeath.Invoke();
-            Time.timeScale = 0;
+            this.enabled = false;
         }
     }
     #endregion

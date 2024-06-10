@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -20,14 +22,30 @@ public class Gamemanager : MonoBehaviour
     [Header("Detection")]
     [SerializeField] private List<ActorZombie> enemylist;
 
+    [SerializeField] private TMP_Text targetScoreTMP;
+    [SerializeField] private TMP_Text currentScoreTMP;
+
+    private int _currentScore;
+
+    private void Start()
+    {
+        _currentScore = 0;
+        targetScoreTMP.text = enemylist.Count.ToString();
+        currentScoreTMP.text = _currentScore.ToString();
+    }
+
 
     void Update()
     {
-        foreach (var enemy in enemylist)
+        foreach (var enemy in enemylist.ToList())
         {
             if (enemy.isDead)
             {
-                enemylist.Remove(enemy);    
+                enemylist.Remove(enemy);
+
+                _currentScore++; // update score index
+
+                currentScoreTMP.text = _currentScore.ToString();
             }
         }
 

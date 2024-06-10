@@ -128,5 +128,5 @@ MonoBehaviour:
   rb: {fileID: 6610968744344336859}
   lifeTime: 3
   speed: 5
-  damage: 10
+  damage: 3
   lookRot: {x: 0, y: 0, z: 0}

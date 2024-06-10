@@ -154,6 +154,8 @@ public class Movement : MonoBehaviour, IDamagable
         transform.position = targetPos;
 
         _isDodging = false;
+
+        yield return new WaitForSeconds(1);
         _canDodge = true; //# should be set to true after a cooldown
         yield return null;
     }

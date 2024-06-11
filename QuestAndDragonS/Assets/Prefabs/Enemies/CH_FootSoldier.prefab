@@ -89,7 +89,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  chaseRange: 6
+  chaseRange: 8
   attackRange: 2
   inChaseRange: 0
   inAttackRange: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   damage: 10
+  isDead: 0
   health: 100
 --- !u!1001 &3437774383029047667
 PrefabInstance:

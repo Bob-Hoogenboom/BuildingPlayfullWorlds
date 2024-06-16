@@ -6,19 +6,19 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifeTime;
     [SerializeField] private float speed = 5f;
     [SerializeField] private int damage = 1;
-    private float currentLifeTime;
     public Vector3 lookRot;
+    private float _currentLifeTime;
 
     private void Update()
     {
-        if (currentLifeTime > 0)
+        if (_currentLifeTime > 0)
         {
-            currentLifeTime -= Time.deltaTime;
+            _currentLifeTime -= Time.deltaTime;
             rb.velocity = lookRot  * speed;
         }
         else
         {
-            currentLifeTime = lifeTime;
+            _currentLifeTime = lifeTime;
             gameObject.SetActive(false);
         }
     }

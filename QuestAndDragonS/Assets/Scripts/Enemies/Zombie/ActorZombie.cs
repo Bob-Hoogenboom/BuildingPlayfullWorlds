@@ -19,6 +19,7 @@ public class ActorZombie : MonoBehaviour , IDamagable
 
     [Header("Health")]
     public UnityEvent<float, float> onDamage;
+    public UnityEvent onDeath;
     public float damage = 1f;
     public bool isDead = false;
     [SerializeField] private float health = 3f;
@@ -64,6 +65,7 @@ public class ActorZombie : MonoBehaviour , IDamagable
         if (currentHealth <= 0 && !isDead)
         {
             stateMachine.ChangeState(new DeathState(this));
+            onDeath.Invoke();
             isDead = true;
         }
     }
